@@ -28,6 +28,7 @@ model Speaker{
   role String
   image String
   createdAt DateTime @default(now()) @map("created_at")
+  events    Event[]
 
   @@map("speakers")
 }
@@ -36,12 +37,14 @@ model Event{
   id Int @id @default(autoincrement())
   name String
   categoryId Int @map("category_id")
+  speakerId   Int?     @map("speaker_id")
   location String
   dateEvent DateTime @map("date_event")
   description String
   createdAt DateTime @default(now()) @map("created_at")
 
   category    Category @relation(fields: [categoryId], references: [id])
+  speaker     Speaker  @relation(fields: [speakerId], references: [id]) 
 
   @@map("events")
 }
