@@ -27,7 +27,6 @@ export const createEvent = async (req: Request, res: Response) => {
                     dateEvent: new Date(dateEvent),
                     description,
                 },
-            });
         });
         res.status(201).json(event);
     } catch (error) {
