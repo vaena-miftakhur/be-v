@@ -44,7 +44,7 @@ model Event{
   createdAt DateTime @default(now()) @map("created_at")
 
   category    Category @relation(fields: [categoryId], references: [id])
-  speaker     Speaker  @relation(fields: [speakerId], references: [id]) 
+  speaker     Speaker?  @relation(fields: [speakerId], references: [id]) 
 
   @@map("events")
 }
