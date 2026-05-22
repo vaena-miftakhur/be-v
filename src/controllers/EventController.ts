@@ -17,15 +17,17 @@ export const getAllEvents = async (req: Request, res: Response) => {
 // 2. POST buat event baru
 export const createEvent = async (req: Request, res: Response) => {
     try {
-        const { name, categoryId, location, dateEvent, description } = req.body;
-        const event = await prisma.event.create({
-            data: {
-                name,
-                categoryId: Number(categoryId),
-                location,
-                dateEvent: new Date(dateEvent),
-                description,
-            },
+        const { name, categoryId, speakerId, location, dateEvent, description } = req.body;
+            const event = await prisma.event.create({
+                data: {
+                    name,
+                    categoryId: Number(categoryId),
+                    speakerId: Number(speakerId), // tambah ini
+                    location,
+                    dateEvent: new Date(dateEvent),
+                    description,
+                },
+            });
         });
         res.status(201).json(event);
     } catch (error) {
@@ -60,6 +62,7 @@ export const updateEvent = async (req: Request, res: Response) => {
             data: {
                 name,
                 categoryId: Number(categoryId),
+                speakerId: Number(speakerId),
                 location,
                 dateEvent: new Date(dateEvent),
                 description,
