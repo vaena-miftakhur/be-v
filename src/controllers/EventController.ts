@@ -55,7 +55,7 @@ export const getEventById = async (req: Request, res: Response) => {
 export const updateEvent = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
-        const { name, categoryId, location, dateEvent, description } = req.body;
+        const { name, categoryId, speakerId, location, dateEvent, description } = req.body;
         const event = await prisma.event.update({
             where: { id: Number(id) },
             data: {
