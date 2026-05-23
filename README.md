@@ -88,7 +88,7 @@ model Event {
 
 ```bash
 # Clone repo
-git clone https://github.com/username/repo-backend.git
+git clone https://github.com/vaena-miftakhur/be-v.git
 cd repo-backend
 
 # Install dependencies
